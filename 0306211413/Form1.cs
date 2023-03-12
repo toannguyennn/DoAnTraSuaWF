@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace _0306211413
             DocFile();
             LoadImageList();
             LoadDSTraSua();
+            
         }
 
         //Danh sách mã trà
@@ -39,6 +41,8 @@ namespace _0306211413
         
         private void LoadImageList() 
         {
+            imageListTraSuaLarge.Images.Clear();
+            imageListTraSuaSmall.Images.Clear();
             //Lấy thông tin thư mục
             DirectoryInfo dir = new DirectoryInfo(folderPath);
 
@@ -65,6 +69,7 @@ namespace _0306211413
             btnSua.Enabled = a;
             btnThem.Enabled = a;
             btnXoa.Enabled = a;
+            btnHuy.Enabled = !a;
         }
         private void LoadDSTraSua()
         {
@@ -221,22 +226,41 @@ namespace _0306211413
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            
 
-            lstMaTra.Add(txtMaTra.Text);
-            lstTenTra.Add(txtTenTra.Text);
-            lstDonGia.Add(Convert.ToInt64(txtSoTien.Text));
-
-            WriteFile();
-
-            using(MemoryStream memory = new MemoryStream())
+            if(string.IsNullOrEmpty(txtTenTra.Text) || string.IsNullOrEmpty(txtSoTien.Text) || pbHinh.Image == null)
             {
-                using (FileStream fs = new FileStream(folderPath + "/" + txtMaTra.Text + ".jpg", FileMode.Create, FileAccess.ReadWrite))
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin","Thông báo!",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!lstMaTra.Contains(txtMaTra.Text))
+            {
+                lstMaTra.Add(txtMaTra.Text);
+                lstTenTra.Add(txtTenTra.Text);
+                lstDonGia.Add(Convert.ToInt64(txtSoTien.Text));
+            }
+            else
+            {
+                foreach (var item in lstMaTra)
                 {
-                    byte[] bytes = ConvertImageToByteArray(pbHinh.Image);
-                    fs.Write(bytes, 0, bytes.Length);
+                    if (item == txtMaTra.Text)
+                    {
+                        int i = lstMaTra.IndexOf(item);
+                        lstTenTra[i] = txtTenTra.Text;
+                        lstDonGia[i] = Convert.ToInt64( txtSoTien.Text);
+                    }
                 }
             }
+                WriteFile();
+
+                using(MemoryStream memory = new MemoryStream())
+                {
+                    using (FileStream fs = new FileStream(folderPath + "/" + txtMaTra.Text + ".jpg", FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        byte[] bytes = ConvertImageToByteArray(pbHinh.Image);
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+                }
+            
             DocFile();
             LoadImageList();
             LoadDSTraSua();
@@ -262,6 +286,10 @@ namespace _0306211413
         private void btnThem_Click(object sender, EventArgs e)
         {
             XuLybtn(false);
+
+            txtTenTra.ReadOnly = false;
+            txtSoTien.ReadOnly = false;
+
             lstMaTra.Sort();
 
             //lấy value cuối
@@ -275,12 +303,60 @@ namespace _0306211413
             txtMaTra.Text = string.Format("TS{0}", (index + 1).ToString("000"));
 
             txtTenTra.Text = string.Empty;
+            pbHinh.Enabled = true;
             txtSoTien.Text = string.Empty;
+            pbHinh.Image = null;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             XuLybtn(true);
+            DocFile();
+            LoadDSTraSua();
+
+            pbHinh.Enabled = false;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            Form1_Load(sender, e);
+            txtTenTra.ReadOnly = true;
+            txtSoTien.ReadOnly = true;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            XuLybtn(false);
+            pbHinh.Enabled = true;
+            txtTenTra.ReadOnly = false;
+            txtSoTien.ReadOnly = false;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            var dialog = MessageBox.Show("Bạn có chắc muốn xóa!","Thông báo",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialog != DialogResult.OK)
+            {
+                return;
+            }
+            File.Delete(folderPath + "/" + txtMaTra.Text + ".jpg");
+
+            lstMaTra.Remove(lvDSTraSua.SelectedItems[0].Text);
+            lstTenTra.Remove(lvDSTraSua.SelectedItems[0].SubItems[1].Text);
+            lstDonGia.Remove(Convert.ToInt64(lvDSTraSua.SelectedItems[0].SubItems[2].Text));
+
+            
+            WriteFile();
+                
+            Form1_Load(sender, e);
+        }
+
+        private void txtSoTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

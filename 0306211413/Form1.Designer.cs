@@ -57,6 +57,7 @@ namespace _0306211413
             this.txtTenTra = new System.Windows.Forms.TextBox();
             this.txtSoTien = new System.Windows.Forms.TextBox();
             this.ofdFile = new System.Windows.Forms.OpenFileDialog();
+            this.btnHuy = new System.Windows.Forms.Button();
             this.grbViewStyle.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHinh)).BeginInit();
@@ -112,9 +113,9 @@ namespace _0306211413
             this.grbViewStyle.Controls.Add(this.rdbDetail);
             this.grbViewStyle.Controls.Add(this.rdbLargeIcon);
             this.grbViewStyle.Location = new System.Drawing.Point(52, 108);
-            this.grbViewStyle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbViewStyle.Margin = new System.Windows.Forms.Padding(4);
             this.grbViewStyle.Name = "grbViewStyle";
-            this.grbViewStyle.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbViewStyle.Padding = new System.Windows.Forms.Padding(4);
             this.grbViewStyle.Size = new System.Drawing.Size(435, 58);
             this.grbViewStyle.TabIndex = 1;
             this.grbViewStyle.TabStop = false;
@@ -124,7 +125,7 @@ namespace _0306211413
             // 
             this.rdbTile.AutoSize = true;
             this.rdbTile.Location = new System.Drawing.Point(364, 23);
-            this.rdbTile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbTile.Margin = new System.Windows.Forms.Padding(4);
             this.rdbTile.Name = "rdbTile";
             this.rdbTile.Size = new System.Drawing.Size(51, 20);
             this.rdbTile.TabIndex = 0;
@@ -137,7 +138,7 @@ namespace _0306211413
             // 
             this.rdbList.AutoSize = true;
             this.rdbList.Location = new System.Drawing.Point(301, 23);
-            this.rdbList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbList.Margin = new System.Windows.Forms.Padding(4);
             this.rdbList.Name = "rdbList";
             this.rdbList.Size = new System.Drawing.Size(48, 20);
             this.rdbList.TabIndex = 0;
@@ -150,7 +151,7 @@ namespace _0306211413
             // 
             this.rdbSmallIcon.AutoSize = true;
             this.rdbSmallIcon.Location = new System.Drawing.Point(195, 23);
-            this.rdbSmallIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbSmallIcon.Margin = new System.Windows.Forms.Padding(4);
             this.rdbSmallIcon.Name = "rdbSmallIcon";
             this.rdbSmallIcon.Size = new System.Drawing.Size(90, 20);
             this.rdbSmallIcon.TabIndex = 0;
@@ -163,7 +164,7 @@ namespace _0306211413
             // 
             this.rdbDetail.AutoSize = true;
             this.rdbDetail.Location = new System.Drawing.Point(117, 23);
-            this.rdbDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbDetail.Margin = new System.Windows.Forms.Padding(4);
             this.rdbDetail.Name = "rdbDetail";
             this.rdbDetail.Size = new System.Drawing.Size(63, 20);
             this.rdbDetail.TabIndex = 0;
@@ -176,7 +177,7 @@ namespace _0306211413
             // 
             this.rdbLargeIcon.AutoSize = true;
             this.rdbLargeIcon.Location = new System.Drawing.Point(8, 23);
-            this.rdbLargeIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbLargeIcon.Margin = new System.Windows.Forms.Padding(4);
             this.rdbLargeIcon.Name = "rdbLargeIcon";
             this.rdbLargeIcon.Size = new System.Drawing.Size(91, 20);
             this.rdbLargeIcon.TabIndex = 0;
@@ -189,9 +190,9 @@ namespace _0306211413
             // 
             this.groupBox2.Controls.Add(this.pbHinh);
             this.groupBox2.Location = new System.Drawing.Point(649, 108);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(355, 196);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -199,8 +200,9 @@ namespace _0306211413
             // 
             // pbHinh
             // 
+            this.pbHinh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbHinh.Location = new System.Drawing.Point(76, 46);
-            this.pbHinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbHinh.Margin = new System.Windows.Forms.Padding(4);
             this.pbHinh.Name = "pbHinh";
             this.pbHinh.Size = new System.Drawing.Size(188, 121);
             this.pbHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -217,7 +219,7 @@ namespace _0306211413
             this.lvDSTraSua.HideSelection = false;
             this.lvDSTraSua.LargeImageList = this.imageListTraSuaLarge;
             this.lvDSTraSua.Location = new System.Drawing.Point(60, 192);
-            this.lvDSTraSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvDSTraSua.Margin = new System.Windows.Forms.Padding(4);
             this.lvDSTraSua.Name = "lvDSTraSua";
             this.lvDSTraSua.Size = new System.Drawing.Size(588, 329);
             this.lvDSTraSua.SmallImageList = this.imageListTraSuaSmall;
@@ -289,8 +291,8 @@ namespace _0306211413
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(725, 459);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Location = new System.Drawing.Point(684, 457);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 28);
             this.btnThem.TabIndex = 3;
@@ -300,18 +302,19 @@ namespace _0306211413
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(725, 511);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSua.Location = new System.Drawing.Point(684, 509);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(100, 28);
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(861, 511);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLuu.Location = new System.Drawing.Point(820, 509);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(100, 28);
             this.btnLuu.TabIndex = 3;
@@ -321,18 +324,19 @@ namespace _0306211413
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(861, 459);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Location = new System.Drawing.Point(820, 457);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 28);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // txtMaTra
             // 
             this.txtMaTra.Location = new System.Drawing.Point(767, 319);
-            this.txtMaTra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaTra.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaTra.Name = "txtMaTra";
             this.txtMaTra.ReadOnly = true;
             this.txtMaTra.Size = new System.Drawing.Size(193, 22);
@@ -341,22 +345,36 @@ namespace _0306211413
             // txtTenTra
             // 
             this.txtTenTra.Location = new System.Drawing.Point(767, 363);
-            this.txtTenTra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenTra.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTra.Name = "txtTenTra";
+            this.txtTenTra.ReadOnly = true;
             this.txtTenTra.Size = new System.Drawing.Size(193, 22);
-            this.txtTenTra.TabIndex = 4;
+            this.txtTenTra.TabIndex = 2;
             // 
             // txtSoTien
             // 
             this.txtSoTien.Location = new System.Drawing.Point(767, 414);
-            this.txtSoTien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoTien.Name = "txtSoTien";
+            this.txtSoTien.ReadOnly = true;
             this.txtSoTien.Size = new System.Drawing.Size(193, 22);
-            this.txtSoTien.TabIndex = 4;
+            this.txtSoTien.TabIndex = 3;
+            this.txtSoTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoTien_KeyPress);
             // 
             // ofdFile
             // 
             this.ofdFile.FileName = "ofdFile";
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Location = new System.Drawing.Point(942, 457);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(100, 28);
+            this.btnHuy.TabIndex = 3;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // Form1
             // 
@@ -367,6 +385,7 @@ namespace _0306211413
             this.Controls.Add(this.txtSoTien);
             this.Controls.Add(this.txtTenTra);
             this.Controls.Add(this.txtMaTra);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
@@ -379,7 +398,7 @@ namespace _0306211413
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách trà sữa";
@@ -421,6 +440,7 @@ namespace _0306211413
         private System.Windows.Forms.ColumnHeader colTenTra;
         private System.Windows.Forms.ColumnHeader colDonGia;
         private System.Windows.Forms.OpenFileDialog ofdFile;
+        private System.Windows.Forms.Button btnHuy;
     }
 }
 
